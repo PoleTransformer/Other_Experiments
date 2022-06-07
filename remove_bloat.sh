@@ -38,3 +38,6 @@ adb shell pm uninstall --user 0 com.samsung.android.game.gos
 adb shell pm uninstall --user 0 com.samsung.vklayer.sm8150
 adb shell pm uninstall --user 0 com.android.vending
 adb shell pm uninstall --user 0 com.samsung.android.app.spage
+adb shell pm uninstall --user 0 com.google.android.setupwizard
+adb shell pm uninstall --user 0 com.sec.android.app.setupwizardlegalprovider
+adb shell pm uninstall --user 0 com.sec.android.app.SecSetupWizard
