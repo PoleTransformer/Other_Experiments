@@ -1,0 +1,1 @@
+nc -l -u localhost 7355 | sox -v 0.5 -t raw -esigned-integer -b 16 -r 48000 - -esigned-integer -b 16 -r 22050 -t raw - | multimon-ng -t raw -a FLEX -f alpha - >> output.txt
