@@ -1,2 +1,5 @@
 nc -l -u localhost 7355 | sox -v 0.5 -t raw -esigned-integer -b 16 -r 48000 - -esigned-integer -b 16 -r 22050 -t raw - | multimon-ng -t raw -a FLEX -a POCSAG512 -a POCSAG1200 -a POCSAG2400 -f alpha -
 pactl load-module module-null-sink sink_name=vspeaker sink_properties=device.description=virtual_speaker
+rtl_sdr -s 250000 -g 10 -f 315e6 record.iq
+sudo ./sendiq -s 250000 -f 315e6 -t u8 -i record.iq
+rtl_fm -M fm -f 154.4M -s 12k -g 50 -l 0 | sox -t raw -r 12k -es -b16 -c1 -V1 - -t mp3 -r 22050 - sinc -4k | ezstream -rvc ezstream.xml
